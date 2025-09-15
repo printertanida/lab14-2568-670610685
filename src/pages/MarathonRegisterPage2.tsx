@@ -6,8 +6,8 @@ export default function MarathonPage() {
   const [modalOpened, setModalOpened] = useState(false);
   return (
     <Container size="lg" py="lg">
-      <Stack align="center">
-        <Title order={2}>Marathon Register Page2</Title>
+      <Stack align="center"> 
+        <Title order={2}>Marathon Register Page 2</Title>
         {/* Button เรียกใช้งาน Modal*/}
         <Button onClick={() => setModalOpened(true)}>Register</Button>
       </Stack>
