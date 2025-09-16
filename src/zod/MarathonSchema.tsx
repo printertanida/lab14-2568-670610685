@@ -33,7 +33,7 @@ export const marathonSchema = z
   )
   .refine(
     (data) => {
-      data.password === data.confirmPassword
+      return data.password === data.confirmPassword
     },
     {
       message: "Password does not match",

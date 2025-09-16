@@ -181,8 +181,7 @@ export default function MarathonModal({ opened, onClose }: MarathonModalProps) {
             checked={hasCoupon}
             onChange={(e) => {
               setHasCoupon(e.currentTarget.checked);
-              mantineForm.setFieldValue("coupon","");
-              setCoupon("");
+              mantineForm.setFieldValue("haveCoupon",e.currentTarget.checked);
             }}
             />
           {/* จะต้องแสดงเมื่อกด เลือก I have coupon เท่านั้น*/}
@@ -191,9 +190,9 @@ export default function MarathonModal({ opened, onClose }: MarathonModalProps) {
             value={coupon}
             onChange={(e) => {
               setCoupon(e.currentTarget.value);
-              mantineForm.setFieldValue("coupon",e.currentTarget.value);
+              mantineForm.setFieldValue("couponCode",e.currentTarget.value);
             }}
-            error={mantineForm.errors.coupon}
+            error={mantineForm.errors.couponCode}
           />
           }
           {/* แสดงราคาการสมัครงานวิ่งตามแผนที่เลือก  */}
