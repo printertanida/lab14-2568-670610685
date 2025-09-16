@@ -13,6 +13,11 @@ export const marathonSchema = z
     gender: z.enum(["male", "female"], { message: "Select gender" }),
     agree: z.boolean().default(false),
     email: z.email(),
+    password: z
+      .string()
+      .min(6,{message: "Password must contain at least 6 characters"})
+      .max(12,{message: "Password must not exceed 12 characters"}),
+    confirmPassword: z.string(),
     haveCoupon: z.boolean().default(false),
     couponCode: z.string().optional(),
   })
@@ -25,5 +30,15 @@ export const marathonSchema = z
       message: "Invalid coupon code",
       path: ["couponCode"],
     }
-  );
+  )
+  .refine(
+    (data) => {
+      data.password === data.confirmPassword
+    },
+    {
+      message: "Password does not match",
+      path: ["confirmPassword"],
+    }
+  )
+  ;
 export type MarathonForm = z.infer<typeof marathonSchema>;
